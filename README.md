@@ -4,3 +4,7 @@
 * [02: ES6 Part 1](02_ES6_Part_1.md)
 * [03: ES6 Part 2](03_ES6_Part_2.md)
 * [04: ES7](04_ES7.md)
+
+## Want more?
+
+- [ES6 Overview in 350 Bullet Points](https://ponyfoo.com/articles/es6)
