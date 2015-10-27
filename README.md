@@ -7,4 +7,5 @@
 
 ## Want more?
 
-- [ES6 Overview in 350 Bullet Points](https://ponyfoo.com/articles/es6)
+* [ES6 Overview in 350 Bullet Points](https://ponyfoo.com/articles/es6)
+* [ ECMAScript 6 quiz](http://maxwellito.github.io/es6-quiz-slides/#/)
