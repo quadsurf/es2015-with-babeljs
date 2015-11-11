@@ -10,3 +10,4 @@
 * [ES6 Overview in 350 Bullet Points](https://ponyfoo.com/articles/es6)
 * [ECMAScript 6 quiz](http://maxwellito.github.io/es6-quiz-slides/#/)
 * [Curated List of ES6 and ES7 Resources](http://golist.co/esnext)
+* [ES6 Basics](https://github.com/mjhea0/es6-basics)
