@@ -309,7 +309,7 @@ var [a, b] = [1, 2]
 ```
 
 ### Example
-```
+```js
 //ES6:
 var data = {name: 'Danny', foo: 'bar', other: {deep: 1337}};
 var {foo, name, other: {deep}} = data;
@@ -322,7 +322,7 @@ var deep = data.other.deep;
 ```
 
 ### Example
-```
+```js
 //ES6:
 var data = [0, 10, 101];
 var [small, medium, large] = data;
