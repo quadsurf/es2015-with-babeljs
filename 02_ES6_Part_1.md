@@ -75,7 +75,7 @@ var cat = {
   sounds: function () {
     this._words.forEach((w) => {
       console.log(this._name + ' goes ' + w);
-	  return this;
+      return this;
     })
   }
 };
@@ -109,19 +109,20 @@ An important note is that this is not a JS Object; there are no commas in betwee
 ```js
 //Basic syntax
 class ClassName {
-	constructor () {}
-	methodName () {}
-	get methodName () {}
-	set methodName () {}
-	static methodName () {}
+  constructor () {}
+  methodName () {}
+  get methodName () {}
+  set methodName () {}
+  static methodName () {}
 }
+
 //Inheritance syntax
 class ClassName extends ParentClassName {
-	constructor () {}
-	methodName () {}
-	get methodName () {}
-	set methodName () {}
-	static methodName () {}
+  constructor () {}
+  methodName () {}
+  get methodName () {}
+  set methodName () {}
+  static methodName () {}
 }
 ```
 
@@ -130,36 +131,36 @@ class ClassName extends ParentClassName {
 ```js
 //ES6
 class Zombie {
-	constructor () {
-		this.type = 'zombie';
-		this.hitPoints = 100;
-	}
-	get health () {
-		return this.hitPoints;
-	}
-	set health (hitPoints) {
-		this.hitPoints = hitPoints;
-	}
-	bite (human) {
-		human.kill();
-		convertToZombie(human);
-	}
+  constructor () {
+    this.type = 'zombie';
+    this.hitPoints = 100;
+  }
+  get health () {
+    return this.hitPoints;
+  }
+  set health (hitPoints) {
+    this.hitPoints = hitPoints;
+  }
+  bite (human) {
+    human.kill();
+    convertToZombie(human);
+  }
 }
 
 //ES5
 function Zombie () {
-	this.type = 'zombie';
-	this.hitPoints = 100;
+  this.type = 'zombie';
+  this.hitPoints = 100;
 }
 Zombie.prototype.health = function (hitPoints) {
-	if (typeof hitPoints === 'undefined') {
-		return this.hitPoints;
-	}
-	this.hitPoints = hitPoints;
+  if (typeof hitPoints === 'undefined') {
+    return this.hitPoints;
+  }
+  this.hitPoints = hitPoints;
 };
 Zombie.prototype.bite = function (human) {
-	human.kill();
-	convertToZombie(human);
+  human.kill();
+  convertToZombie(human);
 };
 ```
 
@@ -168,26 +169,27 @@ Zombie.prototype.bite = function (human) {
 ```js
 //ES6
 class Animal {
-	speak() {
-		console.log("I am an animal!");
-	}
+  speak() {
+    console.log("I am an animal!");
+  }
 }
+
 class Cat extends Animal {
-	speak() {
-		super.speak();
-		console.log("I am a cat too!");
-	}
+  speak() {
+    super.speak();
+    console.log("I am a cat too!");
+  }
 }
 
 //ES5
-function Animal () {
-}
+function Animal () { }
+
 Animal.prototype.speak = function () {
   console.log('I am an animal!');
 }
 
-function Cat () {
-}
+function Cat () { }
+
 Cat.prototype = new Animal();
 Cat.prototype.speak = function () {
   Animal.prototype.speak.call(this);
@@ -211,7 +213,7 @@ ES6 brought various new ways to assign values to Objects.
 
 //Method declarations
 {
-	functionName () {}
+  functionName () {}
 }
 ```
 
@@ -229,8 +231,8 @@ var object = {
 //ES5
 var secret = 42;
 var object = {
-	getData: function getData () {},
-	secret: secret
+  getData: function getData () {},
+  secret: secret
 };
 var key = 1+3;
 object[key] = 'four';
@@ -285,9 +287,9 @@ world
 
 //ES5:
 [
-	'Hello',
-	'world',
-	'!'
+  'Hello',
+  'world',
+  '!'
 ].join('\n');
 ```
 
@@ -296,16 +298,15 @@ world
 [_[MDN]_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 [_[ES6 In Depth]_](http://ponyfoo.com/articles/es6-destructuring-in-depth)
 
-Destructuring provides shorthand for retrieving values from objects and arrays
-	to store their values in variables.
+Destructuring provides shorthand for retrieving values from objects and arrays to store their values in variables.
 It uses pattern matching to match variable names with keys.
 
 ```js
 //object pattern matching
-var {a, b} = {a:1, b:2}
+var {a, b} = {a:1, b:2};
 
 //array pattern matching
-var [a, b] = [1, 2]
+var [a, b] = [1, 2];
 ```
 
 ### Example
@@ -342,18 +343,16 @@ var large = data[2];
 [_[ES6 In Depth]_](http://ponyfoo.com/articles/es6-let-const-and-temporal-dead-zone-in-depth)
 
 `let` and `const` introduce two new ways to store values in variables.
-`let` and `const` are block scoped meaning their scopes are contained
-	inside any `{}` including `if` and `for` bodies.
-`const` can only be assigned to once meaning they cannot change and are
-	constant.
+`let` and `const` are block scoped meaning their scopes are contained inside any `{}` including `if` and `for` bodies.
+`const` can only be assigned to once meaning they cannot change and are constant.
 Assigning to `const` a second time will throw an error.
 
 ```js
 //let
-let variableName = expression
+let variableName = expression;
 
 //const
-const variableName = expression
+const variableName = expression;
 ```
 
 ### Example
@@ -362,20 +361,20 @@ const variableName = expression
 //ES6
 var callbacks = [];
 for (var i=1; i<=5; i++) {
-	let j = i;
-	callbacks.push(function () {
-		console.log(j);
-	});
+  let j = i;
+  callbacks.push(function () {
+    console.log(j);
+  });
 }
 
 //ES5
 var callbacks = [];
 for (var i=1; i<=5; i++) {
-	(function (j) {
-		callbacks.push(function () {
-			return j;
-		});
-	})(i);
+  (function (j) {
+    callbacks.push(function () {
+      return j;
+    });
+  })(i);
 }
 ```
 
@@ -387,7 +386,7 @@ const $ = require('jquery');
 const ADD_ACTION = 1;
 
 //No true ES5 equivalent
-var $ = require('jquery')
+var $ = require('jquery');
 ```
 
 ## Parameter Enhancements: Default, Rest `...`, and Spread `...`
@@ -399,20 +398,17 @@ var $ = require('jquery')
 [_[ES6 In Depth]_](http://ponyfoo.com/articles/es6-spread-and-butter-in-depth)
 
 `rest`, `...`,  was added to make iterating over arguments easier.
-If a variable amount of arguments are passed in, you can specify at which
-	point to create an arguments array.
+If a variable amount of arguments are passed in, you can specify at which point to create an arguments array.
 `spread`, `...`, was added to make passing an array into a function easier.
-If you pass an array preceded by `...` into a function it will assign each
-	element to each parameter.
-Default parameters make it much easier to set your parameters to a default
-	value if no value is passed in.
+If you pass an array preceded by `...` into a function it will assign each element to each parameter.
+Default parameters make it much easier to set your parameters to a default value if no value is passed in.
 
 ```js
 //rest
 function (...restName) {}
 
 //spread
-functionCall(...[])
+functionCall(...[]);
 
 //default parameter value
 function (parameterName = defaultValue) {}
@@ -422,9 +418,9 @@ function (parameterName = defaultValue) {}
 ```js
 //ES6:
 function sum (...numbers) {
-	return numbers.reduce(function (sum, number) {
-		return sum + number;
-	}, 0);
+  return numbers.reduce(function (sum, number) {
+    return sum + number;
+  }, 0);
 }
 
 //ES5:
@@ -432,7 +428,7 @@ function sum () {
   var numbers = Array.prototype.slice.call(arguments);
   return numbers.reduce(function (sum, numbers) {
     return sum + numbers;
-  }, 0)
+  }, 0);
 }
 ```
 
@@ -440,13 +436,13 @@ function sum () {
 ```js
 //ES6:
 function add (a, b) {
-	return a + b;
+  return a + b;
 }
 add(...[1,2]);
 
 //ES5:
 function add(a, b) {
-	return a + b;
+  return a + b;
 }
 add.apply(undefined, [1, 2]);
 ```
@@ -461,7 +457,7 @@ function sayHi (greeting='Hi', name) {
 //ES5:
 function sayHi(greeting, name) {
   if (greeting === undefined) {
-	  greeting = 'Hi';
+    greeting = 'Hi';
   }
   console.log(greeting + ' ' + name);
 }
