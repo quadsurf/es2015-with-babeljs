@@ -43,7 +43,7 @@ There are a few [predefined symbols](https://developer.mozilla.org/en-US/docs/We
 
 #### Exercise
 
-Take a look at the [symbol documentation](ttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) and determine how we can iterate over the symbol keys that we are using for our `instructor` object above.
+Take a look at the [symbol documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) and determine how we can iterate over the symbol keys that we are using for our `instructor` object above.
 
 ## Iterators
 
