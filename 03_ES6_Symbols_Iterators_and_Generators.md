@@ -1,4 +1,4 @@
-# New Features in ES6 Part 2
+# ES6 Symbols & Iterators
 
 ## Objectives
 
@@ -125,3 +125,81 @@ This will simply return `0`s forever. The done flag is never set to true, so it 
 #### Exercise
 
 Build an iterator that will return the numbers 1 through 10 in sequence, and then stop.
+
+## Generators
+
+Generators simplify the process of building out iterators by handling some of the boilerplate for you. To signify that a function is a generator function, you need to include an _*_ character at the end of the word function. Let's see what our zerosForeverIterator would look like if it was structured as a generator instead:
+
+```javascript
+let zeroesForeverIterator = {
+  [Symbol.iterator]: function*() {
+    while (true) {
+      yield 0;
+    }
+  }
+}
+
+for (let val of zeroesForeverIterator) {
+  console.log(val);
+}
+```
+
+Two important things to note here, one is the _*_ character that's appended to the end of the word function. This is the signifier that it is a generator function, which means it returns a `Generator` object instead of a plain old function. The biggest difference between a `Generator` function and a regular function is that `Generator` functions can be _exited and later re-entered through use of yield_.
+
+The other thing to note is that this code would appear to run indefinitely. Most `while (true)` loops would run forever, but in this case, every time we hit `yield`, the currently executing code is paused and the value is returned. If, when execution is resumed, there is no further `yield`s, then the generator code will have finished generating all possible values.
+
+You can also use generators outside of objects, by simply defining a generator function and then executing it:
+
+Example:
+
+```javascript
+function* aFewZeros() {
+  let ind = 0;
+  while (ind < 3) {
+    ind++;
+    yield 0;
+  }
+}
+
+let zeroMaker = aFewZeros();
+
+for (let val of zeroMaker) {
+  console.log(val);
+}
+```
+
+It's worth noting that you don't need to have `yield` in a loop, our aFewZeros iterator could also be written like so:
+
+```javascript
+function* aFewZeros() {
+  yield 0;
+  yield 0;
+  yield 0;
+}
+```
+
+And, lastly, both iterators and generators can also be outside of `for-of` by simply calling `next()` on the iterator.
+
+```javascript
+let zeroMaker = aFewZeros();
+console.log(zeroMaker.next().value);
+// 0
+console.log(zeroMaker.next().value);
+// 0
+console.log(zeroMaker.next().value);
+// 0
+console.log(zeroMaker.next().value);
+// undefined
+```
+
+#### Exercise
+
+Rewrite our 1 to 10 iterator as a generator instead.
+
+## Next Step
+
+:sparkles: Congratulations! :sparkles:
+
+You now know a larger portion of ES6's new features!
+
+Next: [04: ES6 Tail Calls](03_ES6_Tail_Calls.md)

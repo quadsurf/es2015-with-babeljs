@@ -2,8 +2,8 @@
 
 * [01: Introduction to ECMAScript and Transpilers](01_ECMAScript.md)
 * [02: ES6 Part 1](02_ES6_Part_1.md)
-* [03: ES6 Symbols & Iterators](03_ES6_Symbols_Iterators.md)
-* [04: ES7](04_ES7.md)
+* [03: ES6 Symbols, Iterators, and Generators](03_ES6_Symbols_Iterators_and_Generators.md)
+* [04: ES6 Tail Calls](04_ES6_Tail_Calls.md)
 
 ## Want more?
 

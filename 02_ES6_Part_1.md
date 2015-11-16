@@ -469,4 +469,4 @@ function sayHi(greeting, name) {
 
 You now know a large portion of ES6's new features!
 
-Next: [03: ES6 Symbols & Iterators](03_ES6_Symbols_Iterators.md)
+Next: [03: ES6 Symbols, Iterators, and Generators](03_ES6_Symbols_Iterators_and_Generators.md)
