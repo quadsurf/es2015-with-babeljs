@@ -163,7 +163,7 @@ for (let val of zeroesForeverIterator) {
 }
 ```
 
-Two important things to note here, one is the _*_ character that's appended to the end of the word function. This is the signifier that it is a generator function, which means it returns a `Generator` object instead of a plain old function. The biggest difference between a `Generator` function and a regular function is that `Generator` functions can be _exited and later re-entered through use of yield_.
+Two important things to note here, one is the _*_ character that's appended to the end of the word function. This is the signifier that it is a generator function, which means it defines a function that returns a `Generator` object when executed. The biggest difference between a `Generator` function and a regular function is that `Generator` functions can be _exited and later re-entered through use of yield_.
 
 The other thing to note is that this code would appear to run indefinitely. Most `while (true)` loops would run forever, but in this case, every time we hit `yield`, the currently executing code is paused and the value is returned. If, when execution is resumed, there is no further `yield`s, then the generator code will have finished generating all possible values.
 
