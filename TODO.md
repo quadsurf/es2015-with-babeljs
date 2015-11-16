@@ -1,7 +1,7 @@
 * ES2015
 	* Modules
 	* Promises
-	* Iterators
+	* ~~Iterators~~
 	* Generators
 	* Unicode
 	* Maps and Sets
@@ -9,6 +9,6 @@
 	* Number Literals
 	* Reflect API
 	* Proxies
-	* Symbols
+	* ~~Symbols~~
 	* Subclassing Builtins
 	* Tail Calls
