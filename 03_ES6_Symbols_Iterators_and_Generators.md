@@ -8,16 +8,34 @@
 
 ## Symbols
 
-Symbols are the 7th _type_ to be added to Javascript, and the first new type to be added since it was first standardized. Symbols in Javascript operate  similarly to symbols in Ruby, but have some distinct differences and are used in different ways. Let's look at a few examples, then talk through how those work:
+Symbols are the 7th _type_ to be added to Javascript, and the first new type to be added since it was first standardized. Symbols in Javascript operate  similarly to symbols in Ruby, but have some distinct differences and are used in different ways. The most basic way of generating a symbol simply takes a description for that symbol:
 
 ```javascript
 let nameSymbol = Symbol('name');
-let uniqueSymbol = Symbol('name');
-let newNameSymbol = Symbol.for('name');
-let sameNameSymbol = Symbol.for('name');
 ```
 
-This will create 3 unique symbol objects. Using `Symbol.for` will register that symbol into the global symbol registry, or fetch the symbol with the same description from the global registry. This operates most similarly to Ruby, and when you want to ensure that you can recreate the same symbol, you will always want to use `Symbol.for`. The alternative syntax, just `Symbol(description)` will only use the description when converting that symbol to a string. Even if you pass in the same description, it will create a brand new symbol every time. It's still worthwhile to define descriptions on your symbols, since it will make debugging easier.
+This will create a unique symbol, that's _described_ by the word 'name'. If we were to, later in our code, create a new symbol with the same description:
+
+```javascript
+let newNameSymbol = Symbol('name');
+```
+
+These will not be equivalent. These descriptions here are just used for debugging purposes, so that if you run `toString()` on a symbol, you can get some human readable information about it.
+
+```javascript
+nameSymbol === newNameSymbol
+// false
+```
+
+If you want to create a reusable symbol (to make this operate similarly to working with symbols in Ruby), you need to register it. There's a function available on `Symbol` called `for` that will either create, or return, a symbol that has been created with that description. Instead of doing `Symbol(description)`, you would use `Symbol.for(description)`:
+
+```javascript
+let savedNameSymbol = Symbol.for('name');
+let sameSavedNameSymbol = Symbol.for('name');
+
+savedNameSymbol === sameSavedNameSymbol
+// true
+```
 
 Symbols are *not* intended to be a drop in replacement for strings when creating objects. Properties associated with a symbol will be omitted from most of the normal ways of iterating over properties on an object.
 
@@ -78,7 +96,7 @@ This is better, but still has potentially weird behavior. It will cast the index
 Instead, in es2015, we can use `for-of`:
 
 ```javascript
-for (let val in arr) {
+for (let val of arr) {
   console.log(val);
 }
 ```
@@ -101,17 +119,18 @@ It does *not*, however, work with objects. Objects are intended to be iterated o
 
 ### Iterating over our own types of data
 
-What if we are building our own types of collections instead of just using built ins? The new iterator functionality in es2015 allows us to enable this `for-of` functionality for our own data types. Any object that provides a `[Symbol.iterator]()` method is _iterable_, and can be utilized with `for-of`.
+What if we are building our own types of collections instead of just using built ins? The new iterator functionality in es2015 allows us to enable this `for-of` functionality for our own data types. Any object that provides a `[Symbol.iterator]` method is _iterable_, and can be utilized with `for-of`. That method needs to return an object that provides a `next` function that will return an object that contains the next piece of data, and whether or not there is still more data to come.
 
 Let's look at a very basic iterator:
 
 ```javascript
 let zeroesForeverIterator = {
-  [Symbol.iterator]() {
-    return this;
-  },
-  next() {
-    return {done: false, value: 0};
+  [Symbol.iterator]: function() {
+    return {
+      next() {
+        return {done: false, value: 0}
+      }
+    }
   }
 };
 
@@ -120,11 +139,11 @@ for (let val of zeroesForeverIterator) {
 }
 ```
 
-This will simply return `0`s forever. The done flag is never set to true, so it will never stop returning 0s.
+This will simply return `0`s forever. Every time `next` is called, there's an object returned with a `value` of 0, and `done` set to false, which signifies that next can be called again.
 
 #### Exercise
 
-Build an iterator that will return the numbers 1 through 10 in sequence, and then stop.
+Build an iterator that will return the numbers 1 through 10 in sequence, and then stops.
 
 ## Generators
 
