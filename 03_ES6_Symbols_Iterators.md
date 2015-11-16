@@ -37,13 +37,13 @@ console.log(JSON.stringify(instructor));
 // {}
 ```
 
-So, if they aren't displayed when working with the object, what's the point? The main purpose of symbols in es2015 is to guarantee that you won't _collide_ with any existing properties on the object. You can create a key that is guaranteed to be unique to store extra data (or functions) that need to be added to an object. This helps to alleviate some of the  [https://github.com/facebook/react/blob/401e6f10587b09d4e725763984957cf309dfdc30/vendor/react-dom.js#L30](extreme measures) some libraries have taken to avoid conflicts.
+So, if they aren't displayed when working with the object, what's the point? The main purpose of symbols in es2015 is to guarantee that you won't _collide_ with any existing properties on the object. You can create a key that is guaranteed to be unique to store extra data (or functions) that need to be added to an object. This helps to alleviate some of the [extreme measures](https://github.com/facebook/react/blob/401e6f10587b09d4e725763984957cf309dfdc30/vendor/react-dom.js#L30) some libraries have taken to avoid conflicts.
 
-There are a few [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol#Well-known_symbols](predefined symbols) that are included in es2015 that allow you to define functionality in custom objects. We'll show an example of one of these in the next section.
+There are a few [predefined symbols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol#Well-known_symbols) that are included in es2015 that allow you to define functionality in custom objects. We'll show an example of one of these in the next section.
 
 #### Exercise
 
-Take a look at the [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol](symbol documentation) and determine how we can iterate over the symbol keys that we are using for our `instructor` object above.
+Take a look at the [symbol documentation](ttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) and determine how we can iterate over the symbol keys that we are using for our `instructor` object above.
 
 ## Iterators
 
