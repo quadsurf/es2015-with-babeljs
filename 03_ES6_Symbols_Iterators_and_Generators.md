@@ -1,4 +1,4 @@
-# ES6 Symbols & Iterators
+# ES6 Symbols, Iterators, and Generators
 
 ## Objectives
 
