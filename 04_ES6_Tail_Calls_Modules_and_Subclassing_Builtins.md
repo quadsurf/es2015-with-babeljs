@@ -1,9 +1,10 @@
-# ES6 Tail Calls, Modules
+# ES6 Tail Calls, Modules, and Subclassing Builtins
 
 ## Objectives
 
 * Describe what a tail call is and explain what triggers a tail call optimization
 * Describe the differences between es6 modules and node's module system
+* Describe the challenges
 
 ## Tail Calls
 
@@ -153,3 +154,37 @@ lib(); // hello!
 
 * [CommonJS vs. es6](http://jsmodules.io/cjs.html)
 * [Exploring JS: Chapter 17 - Modules](http://exploringjs.com/es6/ch_modules.html)
+
+#### Exercise
+
+Write out, in your own words, 3 of the differences between the node system for modules, and the new es6 system.
+
+## Subclassing built-in constructors
+
+In es5 and before, there were [hacky workarounds](http://speakingjs.com/es5/ch28.html) for subclassing builtins (such as Array, Date, Error, etc.) that made it difficult to create subclasses that utilized the functionality of these base types. Important to note that transpilers can't natively support some of this behavior. This is one of those things that needs engine support to work properly.
+
+Try the following code out in Node:
+
+```javascript
+class MyArray extends Array {
+  constructor(len) {
+    super(len);
+  }
+}
+
+let myArr = new MyArray(0);
+console.log(myArr.length); // 0
+myArr[0] = 'foo';
+console.log(myArr.length); // 1
+```
+
+Now try that in [the babel repl](https://babeljs.io/repl/). Take the transpiled code, and run it in your web browser. This may start to work in your browser when you get to this curriculum, but currently, it should return 0 in both cases.
+
+#### Exercise
+
+Build a subclassed version of Date called `Christmas`, that will always return a new Date object that's set to Christmas of this year.
+
+```javascript
+var xmas = new Christmas();
+console.log(xmas); // Fri Dec 25 2015 00:00:00 GMT-0800 (PST)
+```
