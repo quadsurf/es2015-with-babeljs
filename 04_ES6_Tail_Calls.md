@@ -153,4 +153,3 @@ lib(); // hello!
 
 * [CommonJS vs. es6](http://jsmodules.io/cjs.html)
 * [Exploring JS: Chapter 17 - Modules](http://exploringjs.com/es6/ch_modules.html)
-* [ECMAScript 6 modules: the final syntax](http://www.2ality.com/2014/09/es6-modules-final.html)
