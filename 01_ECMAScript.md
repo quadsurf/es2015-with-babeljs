@@ -131,6 +131,10 @@ $ babel-node es6.js
 $
 ```
 
+### What's supported natively?
+
+http://kangax.github.io/compat-table/es6/#Proxy is the most current compatibility chart for es6 features. This is a useful reference for everything we're going to go through during this curriculum. Depending on when you go through this, some features may be supported natively that aren't supported at the time of this writing. This is the most up to date resource for determining what you can use w/o a transpiler.
+
 ## Next Step
 
 :sparkles: Congratulations! :sparkles:
