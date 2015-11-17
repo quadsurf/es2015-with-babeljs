@@ -4,7 +4,7 @@
 
 * Describe what a tail call is and explain what triggers a tail call optimization
 * Describe the differences between es6 modules and node's module system
-* Describe the challenges
+* Describe what's changed about extending the prototype of built in types in es6
 
 ## Tail Calls
 
