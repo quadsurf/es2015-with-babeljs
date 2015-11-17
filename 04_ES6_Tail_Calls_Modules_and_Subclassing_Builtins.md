@@ -182,9 +182,21 @@ Now try that in [the babel repl](https://babeljs.io/repl/). Take the transpiled 
 
 #### Exercise
 
-Build a subclassed version of Date called `Christmas`, that will always return a new Date object that's set to Christmas of this year.
+Build a subclassed version of Date called `Christmas`, that will always return a new Date object that's set to Christmas of the year passed into the constructor.
 
 ```javascript
-var xmas = new Christmas();
-console.log(xmas); // Fri Dec 25 2015 00:00:00 GMT-0800 (PST)
+var xmas2015 = new Christmas(2015);
+console.log(xmas2015); // Fri Dec 25 2015 00:00:00 GMT-0800 (PST)
+var xmas2012 = new Christmas(2012);
+console.log(xmas2012); // Tue Dec 25 2012 00:00:00 GMT-0800 (PST)
 ```
+
+Once you have it working, try pasting it into the [babel repl](https://babeljs.io/repl/) and see what happens when you try to use it in the browser.
+
+## Next Step
+
+:sparkles: Congratulations! :sparkles:
+
+Almost done! One more set!
+
+Next: [05: Proxies, Reflect API, and new Data Types](05_ES6_Proxies_Reflect_API_and_new_Data_Types.md)

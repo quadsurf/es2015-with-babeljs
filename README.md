@@ -4,6 +4,7 @@
 * [02: ES6 Part 1](02_ES6_Part_1.md)
 * [03: ES6 Symbols, Iterators, and Generators](03_ES6_Symbols_Iterators_and_Generators.md)
 * [04: ES6 Tail Calls, Modules, and Subclassing Builtins](04_ES6_Tail_Calls_Modules_and_Subclassing_Builtins)
+* [05: ES6 Proxies, Reflect API, and new Data Types](05_ES6_Proxies_Reflect_API_and_new_Data_Types.md)
 
 ## Want more?
 
