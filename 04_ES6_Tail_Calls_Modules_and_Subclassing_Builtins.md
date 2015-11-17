@@ -96,59 +96,59 @@ The es6 module system is similar to the way that node (commonjs) handles modules
 4. There are some syntactic differences. Instead of having a `module.exports` object that you attach things to, you instead use the `export` statement before defining a function or a variable. Instead of using `require`, you use `import`, and you can specify which specific exported things you are going to import. We'll show how this looks in a minute.
 5. Exports are bound directly to the original object via an _immutable binding_, in the node world they're just copied over. This means you can do whatever you want with those variables in the node world, but in the es6 world, those can _only_ be modified via functions exporting from that lib.
 
-```javascript
-// node.js
-// lib.js
-var variable = 3;
-module.exports = {
-  variable: variable,
-  bumpVariable: function() {
+  ```javascript
+  // node.js
+  // lib.js
+  var variable = 3;
+  module.exports = {
+    variable: variable,
+    bumpVariable: function() {
+      variable++;
+    }
+  }
+
+  // main.js
+  var variable = require('lib').variable;
+  var bumpVariable = require('lib').bumpVariable;
+
+  console.log(variable); // 3
+  bumpVariable();
+  console.log(variable); // 3
+  variable++;
+  console.log(variable); // 4
+
+  // es6
+  // lib.js
+  export let variable = 3;
+  export function bumpVariable() {
     variable++;
   }
-}
 
-// main.js
-var variable = require('lib').variable;
-var bumpVariable = require('lib').bumpVariable;
+  import { variable, bumpVariable } from 'lib';
 
-console.log(variable); // 3
-bumpVariable();
-console.log(variable); // 3
-variable++;
-console.log(variable); // 4
-
-// es6
-// lib.js
-export let variable = 3;
-export function bumpVariable() {
-  variable++;
-}
-
-import { variable, bumpVariable } from 'lib';
-
-console.log(variable); // 3
-bumpVariable();
-console.log(variable); // 4
-variable++; // error
-```
+  console.log(variable); // 3
+  bumpVariable();
+  console.log(variable); // 4
+  variable++; // error
+  ```
 
 6. You can have both default exports and named exports in es6, this is not possible in node.
 
-```javascript
-// lib.js
-export let variable = 3;
-export function bumpVariable() {
-  variable++;
-}
-export default function() {
-  console.log('hello!');
-}
+  ```javascript
+  // lib.js
+  export let variable = 3;
+  export function bumpVariable() {
+    variable++;
+  }
+  export default function() {
+    console.log('hello!');
+  }
 
-// main.js
-import lib, { variable, bumpVariable } from lib;
-console.log(variable); // 3
-lib(); // hello!
-```
+  // main.js
+  import lib, { variable, bumpVariable } from lib;
+  console.log(variable); // 3
+  lib(); // hello!
+  ```
 
 ### Further Reading
 
