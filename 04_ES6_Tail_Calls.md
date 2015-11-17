@@ -1,8 +1,9 @@
-# ES6 Tail Calls
+# ES6 Tail Calls, Modules
 
 ## Objectives
 
 * Describe what a tail call is and explain what triggers a tail call optimization
+* Describe the differences between es6 modules and node's module system
 
 ## Tail Calls
 
@@ -83,3 +84,73 @@ Can not be optimized. This expands out to multiple function calls, so there's no
 #### Exercise
 
 Write out, in your own words, what triggers tail call optimization and describe what a tail call is.
+
+## Modules
+
+The es6 module system is similar to the way that node (commonjs) handles modules, but with a few distinct differences.
+
+1. Node.js modules are always loaded synchronously, they block execution until they've been required in. The es6 module system is designed to work either synchronously or asynchronously, as you don't want to block the browser while loading in external scripts.
+2. The es6 system doesn't require the entire script to be executed to require in functionality. It can statically analyze code to find the exported variables, and only bring those in. Node, the entire script is run through when required, and that provides the module.exports object that is then utilized.
+3. The es6 system supports cyclic dependencies in a cleaner fashion. Node somewhat supports cyclic dependencies by attaching to an empty exports object, and then allowing the cyclical script populate it afterwards. The es6 system exports _bindings_ not _values_. We'll get to this in a minute, but it's an important distinction that allows for better cyclical dependency handling.
+4. There are some syntactic differences. Instead of having a `module.exports` object that you attach things to, you instead use the `export` statement before defining a function or a variable. Instead of using `require`, you use `import`, and you can specify which specific exported things you are going to import. We'll show how this looks in a minute.
+5. Exports are bound directly to the original object via an _immutable binding_, in the node world they're just copied over. This means you can do whatever you want with those variables in the node world, but in the es6 world, those can _only_ be modified via functions exporting from that lib.
+
+```javascript
+// node.js
+// lib.js
+var variable = 3;
+module.exports = {
+  variable: variable,
+  bumpVariable: function() {
+    variable++;
+  }
+}
+
+// main.js
+var variable = require('lib').variable;
+var bumpVariable = require('lib').bumpVariable;
+
+console.log(variable); // 3
+bumpVariable();
+console.log(variable); // 3
+variable++;
+console.log(variable); // 4
+
+// es6
+// lib.js
+export let variable = 3;
+export function bumpVariable() {
+  variable++;
+}
+
+import { variable, bumpVariable } from 'lib';
+
+console.log(variable); // 3
+bumpVariable();
+console.log(variable); // 4
+variable++; // error
+```
+
+6. You can have both default exports and named exports in es6, this is not possible in node.
+
+```javascript
+// lib.js
+export let variable = 3;
+export function bumpVariable() {
+  variable++;
+}
+export default function() {
+  console.log('hello!');
+}
+
+// main.js
+import lib, { variable, bumpVariable } from lib;
+console.log(variable); // 3
+lib(); // hello!
+```
+
+### Further Reading
+
+* [CommonJS vs. es6](http://jsmodules.io/cjs.html)
+* [Exploring JS: Chapter 17 - Modules](http://exploringjs.com/es6/ch_modules.html)
+* [ECMAScript 6 modules: the final syntax](http://www.2ality.com/2014/09/es6-modules-final.html)
