@@ -197,6 +197,4 @@ Once you have it working, try pasting it into the [babel repl](https://babeljs.i
 
 :sparkles: Congratulations! :sparkles:
 
-Almost done! One more set!
-
-Next: [05: Proxies, Reflect API, and new Data Types](05_ES6_Proxies_Reflect_API_and_new_Data_Types.md)
+Now on to some new data structures, [Map and Set](05_ES6_Map_and_Set.md)!
