@@ -86,7 +86,7 @@ The Reflect API (works like the `Math` module, all the functionality is staticly
   let newArray2Length = (new Array(0)).length;
   ```
 
-## 4 new data structures in ES6
+## New data structures in ES6
 
 ### Map
 
