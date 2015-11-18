@@ -1,12 +1,6 @@
 * ES2015
-	* Modules
+	* Number Literals
 	* Promises
 	* Unicode
-	* Maps and Sets
-	* Builtin Object Enhancements
-	* Number Literals
-	* Reflect API
-	* Proxies
-	* Subclassing Builtins
 
 * ES2016
