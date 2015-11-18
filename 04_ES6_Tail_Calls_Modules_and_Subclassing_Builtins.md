@@ -93,11 +93,10 @@ The es6 module system is similar to the way that node (commonjs) handles modules
 1. Node.js modules are always loaded synchronously, they block execution until they've been required in. The es6 module system is designed to work either synchronously or asynchronously, as you don't want to block the browser while loading in external scripts.
 2. The es6 system doesn't require the entire script to be executed to require in functionality. It can statically analyze code to find the exported variables, and only bring those in. Node, the entire script is run through when required, and that provides the module.exports object that is then utilized.
 3. The es6 system supports cyclic dependencies in a cleaner fashion. Node somewhat supports cyclic dependencies by attaching to an empty exports object, and then allowing the cyclical script populate it afterwards. The es6 system exports _bindings_ not _values_. We'll get to this in a minute, but it's an important distinction that allows for better cyclical dependency handling.
-4. There are some syntactic differences. Instead of having a `module.exports` object that you attach things to, you instead use the `export` statement before defining a function or a variable. Instead of using `require`, you use `import`, and you can specify which specific exported things you are going to import. We'll show how this looks in a minute.
-5. Exports are bound directly to the original object via an _immutable binding_, in the node world they're just copied over. This means you can do whatever you want with those variables in the node world, but in the es6 world, those can _only_ be modified via functions exporting from that lib.
-
+4. There are some syntactic differences. Instead of having a `module.exports` object that you attach things to, you instead use the `export` statement before defining a function or a variable. Instead of using `require`, you use `import`, and you can specify which specific exported things you are going to import. We'll show what this looks in a minute.
+5. Exports are bound directly to the original object via an _immutable binding_, in the node world they're just copied over. This means you can do whatever you want with those variables in the node world, but in the es6 world, those can _only_ be modified via functions exporting from that lib. <br><br>
+  <b>Node.js</b>
   ```javascript
-  // node.js
   // lib.js
   var variable = 3;
   module.exports = {
@@ -116,8 +115,9 @@ The es6 module system is similar to the way that node (commonjs) handles modules
   console.log(variable); // 3
   variable++;
   console.log(variable); // 4
-
-  // es6
+  ```
+  <b>es6</b>
+  ```js
   // lib.js
   export let variable = 3;
   export function bumpVariable() {
