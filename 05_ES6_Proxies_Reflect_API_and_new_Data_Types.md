@@ -11,7 +11,7 @@
 
 *Proxies are, at this time, only available in Firefox and Edge. They are not transpilable because there's no es5 equivalent to this behavior. These code examples can be run in firefox.*
 
-Proxies enable you to modify fundamental behavior on an object. Fundamental behavior is things like assigning values, enumerating, looking up properties, etc. Proxies are constructed and associated with both a `handler` and a `target`. The `handler` is what will be interjecting before the `target`.
+Proxies enable you to modify fundamental behavior on an object. Fundamental behavior is things like assigning values, enumerating, looking up properties, etc. Proxies are constructed and associated with both a `handler` and a `target`. The `handler` is what will be interjecting before the requests reach the `target`.
 
 Let's look at a simple example of a proxy object:
 
@@ -90,9 +90,9 @@ The Reflect API (works like the `Math` module, all the functionality is staticly
 
 ### Map
 
-Map is a javascript implementation of a `hash` or `hashmap`. Previously, we've used objects to emulate `hash` functionality in javascript, but that comes along with a handful of issues. Only being able to use strings (now symbols also, but previously only strings) as keys, prototypical inheritance issues, and no straightforward way to determine size, for example.
+Map is a javascript implementation of a `hash` or `hashmap`. Previously, we've used objects to emulate `hash` functionality in javascript, but that comes with a handful of issues. Only being able to use strings (now symbols also, but previously only strings) as keys, prototypical inheritance issues, and no straightforward way to determine size, for example.
 
-`map` has a different syntax than objects, however. Fetching data from a map requires you to use `get`, setting data requires using `set`, and delete needs the `delete` function. If you attempt to use the regular object syntax, it will 'work' but it only works because maps are still (at their root), objects.
+`map` has a different syntax than objects, however. Fetching data from a map requires you to use `get`, setting data requires `set`, and delete needs the `delete` function. If you attempt to use the regular object syntax, it will 'work' but it only works because maps are still (at their root), objects.
 
 ```javascript
 let myMap = new Map();
@@ -143,7 +143,7 @@ Write code to iterate over the elements in the map, printing out the keys and th
 
 ### WeakMap
 
-A `WeakMap` is almost the same as a `Map`, except it doesn't prevent it's keys from being garbage collected. Since it doesn't keep a hard reference to the keys that have been used to store data, there's no way to enumerate over data in a `WeakMap`. You can only use `get`, `set`, `has`, and `delete` data in a `WeakMap`.
+A `WeakMap` is almost the same as a `Map`, except it doesn't prevent it's keys from being garbage collected. Since it doesn't keep a hard reference to the keys that have been used to store data, there's no way to enumerate over data in a `WeakMap`. You can only use `get`, `set`, `has`, and `delete` on data in a `WeakMap`.
 
 This can be a tricky concept to wrap your head around, but let's take a situation where we want to store more data about the users in our system:
 
