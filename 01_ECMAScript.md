@@ -80,7 +80,7 @@ There are [many ways](http://babeljs.io/docs/setup/#babel_cli) to install Babel.
 
 Install the CLI version:
 ```sh
-$ npm install babel -g
+$ npm install babel-cli -g
 ```
 
 ### Use
