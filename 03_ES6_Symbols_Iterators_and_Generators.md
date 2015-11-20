@@ -225,4 +225,4 @@ A useful type of generator would be something that generates fibonacci sequence 
 
 You now know a larger portion of ES6's new features!
 
-Next: [04: ES6 Tail Calls, Modules, and Subclassing Builtins](04_ES6_Tail_Calls_Modules_and_Subclassing_Builtins)
+Next: [04: ES6 Tail Calls, Modules, and Subclassing Builtins](04_ES6_Tail_Calls_Modules_and_Subclassing_Builtins.md)
