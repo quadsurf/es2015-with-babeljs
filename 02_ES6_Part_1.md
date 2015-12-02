@@ -450,14 +450,14 @@ add.apply(undefined, [1, 2]);
 ### Example
 ```js
 //ES6:
-function sayHi (greeting='Hi', name) {
+function sayHi (greeting, name='Chris') {
   console.log(greeting + ' ' + name);
 }
 
 //ES5:
 function sayHi(greeting, name) {
-  if (greeting === undefined) {
-    greeting = 'Hi';
+  if (name === undefined) {
+    name = 'Chris';
   }
   console.log(greeting + ' ' + name);
 }
