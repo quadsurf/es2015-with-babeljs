@@ -13,3 +13,4 @@
 * [ECMAScript 6 quiz](http://maxwellito.github.io/es6-quiz-slides/#/)
 * [Curated List of ES6 and ES7 Resources](http://golist.co/esnext)
 * [ES6 Basics](https://github.com/mjhea0/es6-basics)
+* [Simple examples to help you understand ES6](https://github.com/sgaurav/understanding-es6)
