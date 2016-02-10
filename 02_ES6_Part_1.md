@@ -121,9 +121,7 @@ function MyModule(){
 
 ### Exercise
 
- - Convert the following code from ES5 to ES2015:
-
-
+ - [Here](https://github.com/gSchool/es2015-with-babeljs/blob/master/exercises/arrow_expression_exercise.js)
 
 ## Class
 
@@ -228,6 +226,11 @@ Cat.prototype.speak = function () {
 }
 ```
 
+
+### Exercise
+
+ - [Here](https://github.com/gSchool/es2015-with-babeljs/blob/master/exercises/class_exercise.js)
+
 ## Object Literal Features
 
 [_[Babel Docs]_](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals)
@@ -268,6 +271,10 @@ var object = {
 var key = 1+3;
 object[key] = 'four';
 ```
+
+### Exercise
+
+ - [Here](https://github.com/gSchool/es2015-with-babeljs/blob/master/exercises/object_literal_exercise.js)
 
 ## Template Strings <code>``</code>
 
@@ -324,6 +331,10 @@ world
 ].join('\n');
 ```
 
+### Exercise
+
+ - [Here](https://github.com/gSchool/es2015-with-babeljs/blob/master/exercises/template_strings_exercise.js)
+
 ## Destructuring
 [_[Babel Docs]_](http://babeljs.io/docs/learn-es2015/#destructuring)
 [_[MDN]_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
@@ -365,6 +376,10 @@ var small = data[0];
 var medium = data[1];
 var large = data[2];
 ```
+
+### Exercise
+
+ - [Here](https://github.com/gSchool/es2015-with-babeljs/blob/master/exercises/destructuring_exercise.js)
 
 ## Let and Const
 
@@ -419,6 +434,11 @@ const ADD_ACTION = 1;
 //No true ES5 equivalent
 var $ = require('jquery');
 ```
+
+
+### Exercise
+
+ - [Here](https://github.com/gSchool/es2015-with-babeljs/blob/master/exercises/let_const_exercise.js)
 
 ## Parameter Enhancements: Default, Rest `...`, and Spread `...`
 
