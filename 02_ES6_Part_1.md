@@ -41,7 +41,7 @@ parameter => {body}
 parameter => body
 ```
 
-### Example
+### Example: 2015 vs ES5
 
 ```js
 //ES6:
@@ -53,7 +53,7 @@ var square = function square(a) {
 };
 ```
 
-### Example
+### Example: 2015 vs ES5
 
 ```js
 //ES6:
@@ -65,7 +65,7 @@ var add = function add(a, b) {
 };
 ```
 
-### Example
+### Example: Binding this
 
 ```js
 //ES6:
@@ -74,6 +74,7 @@ var cat = {
   _words: ['meow', 'mrow', 'purr'],
   sounds: function () {
     this._words.forEach((w) => {
+      // NOTE: this refers to cat inside the forEach because arrow function binds parent's this.
       console.log(this._name + ' goes ' + w);
       return this;
     })
@@ -87,12 +88,42 @@ var cat = {
   sounds: function sounds() {
     var _this = this; //Aliasing this
     this._words.forEach(function (w) {
+      // NOTE: we had to alias this because otherwise it would refer the the forEach's this.
       console.log(_this._name + ' goes ' + w);
       return _this;
     });
   }
 };
 ```
+
+### Example: Binding this
+
+```
+function MyModule(){
+
+  this.foo = 'bar';
+
+  var es5Func = function (){
+    console.log(this.foo); //`this` refers to the current function
+  };
+
+  var es6Func = () => {
+    console.log(this.foo); //`this` refers to MyModule's `this`
+  };
+
+  es5Func(); //logs undefined
+
+  es6Func(); //logs 'bar'
+
+}
+```
+
+
+### Exercise
+
+ - Convert the following code from ES5 to ES2015:
+
+
 
 ## Class
 
