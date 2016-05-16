@@ -36,6 +36,20 @@ Some people refer to ES6 as ES2015.
 Talking about JavaScript versions doesn't make as much sense
 	because each browser versions JavaScript its own way.
 
+## Support
+
+Most of the  ES2015 features are now available in Node v6 and the latest versions of Chrome.
+
+```
+brew update
+brew upgrade node
+```
+
+However, some are not, and not all browsers support ES2015 features.  So generally speaking:
+
+- you can control the _server side_ Node version, so use v6 or higher to ES2105 goodness
+- you cannot control the _client side_ as much, so transpile client-side scripts
+
 ## Transpilers
 
 A [transpiler](https://en.wikipedia.org/wiki/Source-to-source_compiler) is a type of compiler.
